@@ -1,3 +1,12 @@
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Pagination } from 'swiper'
+import 'swiper/css'
+import 'swiper/css/free-mode'
+import 'swiper/css/pagination'
+import {BsArrowRight} from 'react-icons/bs'
+import Image from 'next/image'
+
+
 // testimonial data
 const testimonialData = [
   {
@@ -23,8 +32,47 @@ const testimonialData = [
   },
 ];
 
+
+
+
+
 const TestimonialSlider = () => {
-  return <div>Testimonial Slider</div>;
+  return (
+    <Swiper
+    spaceBetween={10}
+    pagination={{
+      clickable: true
+    }}
+    modules={[Pagination]}
+    className='h-[280px] sm:h-[480px]'
+    >
+      {
+        testimonialSlider.map((person,index) => {
+          return (
+            <SwiperSlide key={index}>
+              <div>
+                {/* avatar, name, position  */}
+                <div>
+                  {/* avatar  */}
+                  <div>avatar image</div>
+                  {/* name  */}
+                  <div>name</div>
+                  {/* position */}
+                  <div>position</div>
+                </div>
+              </div>
+              <div>
+                {/* quote & messages */}
+                <div>quote & message</div>
+              </div>
+            </SwiperSlide>
+          )
+        }
+        )
+      }
+
+    </Swiper>
+  )
 };
 
-export default TestimonialSlider;
+export default TestimonialSlider
